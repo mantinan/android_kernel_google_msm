@@ -608,7 +608,7 @@ static int bq27541_get_psp(int reg_offset, enum power_supply_property psp,
 	}
 	if (psp == POWER_SUPPLY_PROP_CURRENT_NOW) {
 		val->intval = bq27541_device->bat_current
-			= bq27541_battery_current();
+			= 1000 * bq27541_battery_current();
 		BAT_NOTICE("current = %d mA\n", val->intval);
 	}
 	return 0;
